@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>eFPS Login</title>
   <link rel="icon" type="image/png" href="img/logo.png">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@heroicons/v2/24/outline/index.js"></script>
   <style>
     .auth-bg {
         background-image: 
@@ -39,7 +40,31 @@
     header {
       position: relative;
     }
-</style>
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+    .modal.active {
+      display: flex;
+    }
+    .modal-content {
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .required:after {
+      content: "*";
+      color: #ef4444;
+      margin-left: 2px;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
 
@@ -111,14 +136,14 @@
         <div class="mb-8">
           <p class="text-blue-600 font-medium mb-2">SECURE TAX FILING</p>
           <h1 class="text-3xl font-bold text-gray-800 mb-2">Access Your Account</h1>
-          <p class="text-gray-600">New to eFPS? <a href="#" class="text-blue-600 hover:underline">Create account</a></p>
+          <p class="text-gray-600">New to eFPS? <a href="#" id="openModal" class="text-blue-600 hover:underline">Create account</a></p>
         </div>
 
         <!-- Login Form -->
         <form class="space-y-6">
           <!-- TIN Input -->
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">Tax Identification Number</label>
+            <label class="block text-sm font-medium text-gray-700 mb-2 required">Tax Identification Number</label>
             <div class="flex gap-2">
               <input type="text" maxlength="3" 
                      class="w-1/4 text-center border-2 border-gray-200 rounded-lg py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
@@ -140,18 +165,20 @@
 
           <!-- Username -->
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+            <label class="block text-sm font-medium text-gray-700 mb-2 required">Username</label>
             <input type="text" 
                    class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
-                   placeholder="Enter your username">
+                   placeholder="Enter your username"
+                   required>
           </div>
 
           <!-- Password -->
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+            <label class="block text-sm font-medium text-gray-700 mb-2 required">Password</label>
             <input type="password" 
                    class="w-full border-2 border-gray-200 rounded-lg px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
-                   placeholder="Enter your password">
+                   placeholder="Enter your password"
+                   required>
           </div>
 
           <!-- Actions -->
@@ -196,39 +223,141 @@
   </div>
 </div>
 
+<!-- Create Account Modal -->
+<div class="modal" id="createAccountModal">
+  <div class="flex items-center justify-center min-h-screen w-full p-4">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-3xl modal-content">
+      <div class="p-6 border-b flex justify-between items-center bg-gray-50">
+        <h3 class="text-2xl font-bold text-blue-800">Create New Account</h3>
+        <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Registration Form -->
+      <div class="p-8">
+        <form class="space-y-6">
+          <!-- Account Type -->
+          <fieldset class="space-y-4">
+            <legend class="text-lg font-medium text-gray-700 mb-4">Account Type</legend>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <label class="relative p-4 border-2 rounded-lg cursor-pointer transition-all has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50">
+                <input type="radio" name="accountType" value="Y" class="absolute opacity-0" required>
+                <div class="space-y-2">
+                  <div class="font-medium flex items-center">
+                    <span class="flex items-center justify-center w-6 h-6 mr-2 border-2 rounded-full">
+                      <span class="w-3 h-3 rounded-full bg-blue-500 hidden"></span>
+                    </span>
+                    Corporate
+                  </div>
+                  <p class="text-sm text-gray-500">For business entities and organizations</p>
+                </div>
+              </label>
+
+              <label class="relative p-4 border-2 rounded-lg cursor-pointer transition-all has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50">
+                <input type="radio" name="accountType" value="N" class="absolute opacity-0" required>
+                <div class="space-y-2">
+                  <div class="font-medium flex items-center">
+                    <span class="flex items-center justify-center w-6 h-6 mr-2 border-2 rounded-full">
+                      <span class="w-3 h-3 rounded-full bg-blue-500 hidden"></span>
+                    </span>
+                    Individual
+                  </div>
+                  <p class="text-sm text-gray-500">For personal tax filing</p>
+                </div>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Form Fields -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-gray-700 required">First Name</label>
+              <input type="text" placeholder="Enter your first name" class="w-full mt-1 px-4 py-2 border rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" required>
+            </div>
+            <div>
+              <label class="block text-gray-700 required">Last Name</label>
+              <input type="text" placeholder="Enter your last name" class="w-full mt-1 px-4 py-2 border rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" required>
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-gray-700 required">Email Address</label>
+              <input type="email" placeholder="Enter a valid email address" class="w-full mt-1 px-4 py-2 border rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" required>
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-gray-700 required">TIN Number</label>
+              <div class="flex gap-2 mt-1">
+                <input type="text" maxlength="3" placeholder="123" class="w-1/4 text-center border rounded-lg py-2 focus:border-blue-500" required>
+                <span class="self-center">-</span>
+                <input type="text" maxlength="3" placeholder="456" class="w-1/4 text-center border rounded-lg py-2 focus:border-blue-500" required>
+                <span class="self-center">-</span>
+                <input type="text" maxlength="3" placeholder="789" class="w-1/4 text-center border rounded-lg py-2 focus:border-blue-500" required>
+                <span class="self-center">-</span>
+                <input type="text" maxlength="3" placeholder="000" class="w-1/4 text-center border rounded-lg py-2 focus:border-blue-500" required>
+              </div>
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-gray-700 required">Password</label>
+              <input type="password" placeholder="Create a strong password" class="w-full mt-1 px-4 py-2 border rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" required>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
+              Create Account
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script>
+    // Mobile Menu Logic (existing)
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      mobileMenuButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('active');
+        // ... existing icon change code ...
+      });
+
+      // Modal Logic
+      const modal = document.getElementById('createAccountModal');
+      const openModalBtn = document.getElementById('openModal');
+      const closeModalBtn = document.getElementById('closeModal');
+
+      function toggleModal() {
+        modal.classList.toggle('active');
+      }
+
+      openModalBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleModal();
+      });
+
+      closeModalBtn.addEventListener('click', toggleModal);
+
+      // Close modal when clicking outside
+      window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          toggleModal();
+        }
+      });
+
+      // Close modal on ESC key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          toggleModal();
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    // Debugging: Log elements to console
-    console.log('Mobile Menu Button:', mobileMenuButton);
-    console.log('Mobile Menu:', mobileMenu);
-    
-    mobileMenuButton.addEventListener('click', function(e) {
-
-      e.stopPropagation(); // Prevent event bubbling
-      mobileMenu.classList.toggle('active');
-      
-      // Change the icon based on menu state
-      const icon = mobileMenuButton.querySelector('svg');
-      if (mobileMenu.classList.contains('active')) {
-        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
-      } else {
-        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
-      }
-    });
-    
-    // Close menu when clicking anywhere outside
-    document.addEventListener('click', function(e) {
-      if (!mobileMenu.contains(e.target)) {
-        mobileMenu.classList.remove('active');
-        const icon = mobileMenuButton.querySelector('svg');
-        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
-      }
-    });
-  });
-</script>
