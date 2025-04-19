@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Bureau of Internal Revenue Electronic Filing and Payment System">
+  <title>eFPS Welcome</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <!-- Tailwind 4 via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    /* Background overlay styling */
+    .background-overlay {
+      background-image: url('img/bg.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.10; /* Adjust this value to control transparency */
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge */
+    html {
+      -ms-overflow-style: none;
+      /* Hide scrollbar for Firefox */
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+  <!-- Background image with low opacity -->
+  <div class="background-overlay absolute inset-0 -z-10"></div>
+
+  <!-- Content container with gradient overlay -->
+  <div class="bg-gradient-to-br from-blue-50/30 to-white/30 flex-grow">
+    <header class="bg-blue-700 text-white shadow-lg">
+      <!-- Header content remains the same -->
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <img src="img/logo.png"
+                 alt="BIR Logo"
+                 class="h-10 md:h-12 w-auto">
+          </div>
+    
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex space-x-4 lg:space-x-6">
+            <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">Home</a>
+            <a href="login.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">Login</a>
+            
+            <!-- Resources Dropdown -->
+            <div class="relative group">
+              <button class="px-3 py-2 text-sm font-medium hover:bg-blue-600 flex items-center gap-1">
+                Resources
+                <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              
+              <!-- Dropdown Menu -->
+              <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-1 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+                <a href="revenue.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Revenue Issuances</a>
+                <a href="faq.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">FAQs</a>
+                <a href="jobaids.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Job Aids</a>
+                <a href="downloads.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Downloads</a>
+              </div>
+            </div>
+    
+            <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">BIR Main</a>
+          </nav>
+    
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden p-2 hover:bg-blue-600 rounded-lg">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+      <!-- Main content remains the same -->
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-blue-800 mb-6 animate-fade-in">
+          Welcome to eFPS
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          Streamlined electronic filing and payment system<br class="hidden sm:block">
+          of the Bureau of Internal Revenue.
+        </p>
+        <a href="login.html"
+           class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold
+                  px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all
+                  transform hover:scale-105">
+          Go to Login Page
+        </a>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="mt-16 grid md:grid-cols-3 gap-8">
+        <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-blue-600 text-3xl mb-4">⚡</div>
+          <h3 class="text-xl font-semibold mb-2">Fast Processing</h3>
+          <p class="text-gray-600">Instant submission and real-time confirmation of transactions</p>
+        </div>
+        <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-blue-600 text-3xl mb-4">🔒</div>
+          <h3 class="text-xl font-semibold mb-2">Secure Platform</h3>
+          <p class="text-gray-600">Military-grade encryption for all your sensitive data</p>
+        </div>
+        <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+          <div class="text-blue-600 text-3xl mb-4">📱</div>
+          <h3 class="text-xl font-semibold mb-2">Mobile Friendly</h3>
+          <p class="text-gray-600">Access your account from any device, anywhere</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white/80 backdrop-blur-sm border-t border-blue-200 mt-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="md:flex md:items-center md:justify-between">
+          <div class="text-center md:text-left">
+            <p class="text-sm text-gray-500">
+              © 2009-2024 Bureau of Internal Revenue<br class="md:hidden">
+              <span class="hidden md:inline">•</span> All rights reserved
+            </p>
+          </div>
+          <div class="mt-4 md:mt-0">
+            <nav class="flex justify-center space-x-6">
+              <a href="#" class="text-sm text-gray-500 hover:text-blue-600">Privacy Policy</a>
+              <a href="#" class="text-sm text-gray-500 hover:text-blue-600">Terms of Service</a>
+              <a href="#" class="text-sm text-gray-500 hover:text-blue-600">Contact Us</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
