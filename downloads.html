@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eFPS Downloads - BIR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        #mobile-menu {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        transition: all 0.3s ease-in-out;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        }
+        
+        #mobile-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        }
+        
+        header {
+        position: relative;
+        }
+    </style>
+</head>
+<header class="bg-blue-700 text-white shadow-lg z-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <img src="img/logo.png"
+               alt="BIR Logo"
+               class="h-10 md:h-12 w-auto">
+        </div>
+  
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-4 lg:space-x-6">
+          <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">Home</a>
+          <a href="login.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">Login</a>
+          
+          <!-- Resources Dropdown -->
+          <div class="relative group">
+            <button class="px-3 py-2 text-sm font-medium hover:bg-blue-600 flex items-center gap-1">
+              Resources
+              <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            
+            <!-- Dropdown Menu -->
+            <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-1 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+              <a href="revenue.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Revenue Issuances</a>
+              <a href="faq.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">FAQs</a>
+              <a href="jobaids.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Job Aids</a>
+              <a href="downloads.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Downloads</a>
+            </div>
+          </div>
+  
+          <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">BIR Main</a>
+        </nav>
+  
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden p-2 hover:bg-blue-600 rounded-lg">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Mobile Navigation Menu -->
+      <div id="mobile-menu"
+          class="md:hidden bg-blue-700 rounded-b-lg z-50 space-y-2 px-4 py-4">
+        <a href="index.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Home</a>
+        <a href="login.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Login</a>
+        <a href="revenue.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Revenue Issuances</a>
+        <a href="faq.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">FAQs</a>
+        <a href="jobaids.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Job Aids</a>
+        <a href="downloads.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Downloads</a>
+        <a href="#" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">BIR Main</a>
+      </div>
+    </div>
+  </header>
+<body class="bg-gradient-to-br from-blue-50 to-gray-50 min-h-screen">
+
+<!-- Main Content -->
+<main class="container mx-auto px-4 py-12 max-w-4xl">
+    <!-- Header -->
+    <div class="text-center mb-16">
+        <h1 class="text-4xl font-bold text-blue-800 mb-4">
+             eFPS Downloads
+        </h1>
+        <p class="text-gray-600">Essential resources for seamless tax management</p>
+    </div>
+
+    <!-- Download Cards -->
+    <div class="grid gap-6 mb-16">
+        <!-- Download Item 1 -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="flex items-center gap-4">
+                <div class="bg-blue-100 p-4 rounded-xl">
+                    <span class="text-3xl">📥</span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800">Offline eBIRForms Package</h3>
+                    <p class="text-gray-600 mt-1">Annual Income Tax Returns v2013 ENCS (Latest Version)</p>
+                    <div class="mt-3 flex gap-2 text-sm text-gray-500">
+                        <span>• ZIP Archive</span>
+                        <span>• 45MB</span>
+                        <span>• Version 3.2.1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Item 2 -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="flex items-center gap-4">
+                <div class="bg-blue-100 p-4 rounded-xl">
+                    <span class="text-3xl">📄</span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800">BF1702 Supplemental Form</h3>
+                    <p class="text-gray-600 mt-1">Page 1 (November 2011 ENCS version)</p>
+                    <div class="mt-3 flex gap-2 text-sm text-gray-500">
+                        <span>• PDF Document</span>
+                        <span>• 2.1MB</span>
+                        <span>• Latest Revision</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Item 3 -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="flex items-center gap-4">
+                <div class="bg-blue-100 p-4 rounded-xl">
+                    <span class="text-3xl">💻</span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800">eFPS Offline Form Application</h3>
+                    <p class="text-gray-600 mt-1">Desktop version for Windows systems</p>
+                    <div class="mt-3 flex gap-2 text-sm text-gray-500">
+                        <span>• EXE Installer</span>
+                        <span>• 78MB</span>
+                        <span>• Version 2024.1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="text-center">
+        <a href="index.html" 
+           class="inline-block px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-200">
+            Back to Home
+        </a>
+    </div>
+</main>
+
+<!-- Animated Background Elements -->
+<div class="fixed bottom-0 right-0 -z-10 opacity-10">
+    <div class="w-64 h-64 bg-blue-200 rounded-full blur-xl"></div>
+</div>
+
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      // Debugging: Log elements to console
+      console.log('Mobile Menu Button:', mobileMenuButton);
+      console.log('Mobile Menu:', mobileMenu);
+      
+      mobileMenuButton.addEventListener('click', function(e) {
+  
+        e.stopPropagation(); // Prevent event bubbling
+        mobileMenu.classList.toggle('active');
+        
+        // Change the icon based on menu state
+        const icon = mobileMenuButton.querySelector('svg');
+        if (mobileMenu.classList.contains('active')) {
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+        } else {
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+        }
+      });
+      
+      // Close menu when clicking anywhere outside
+      document.addEventListener('click', function(e) {
+        if (!mobileMenu.contains(e.target)) {
+          mobileMenu.classList.remove('active');
+          const icon = mobileMenuButton.querySelector('svg');
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+        }
+      });
+    });
+  </script>

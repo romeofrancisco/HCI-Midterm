@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Bureau of Internal Revenue eFPS FAQ">
+  <title>eFPS FAQ - Bureau of Internal Revenue</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@heroicons/v2/24/outline/index.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Offset for sticky header on anchor links */
+    section:target {
+      scroll-margin-top: 70px;
+    }
+    #mobile-menu {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      transition: all 0.3s ease-in-out;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    #mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    header {
+      position: relative;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+
+  <header class="bg-blue-700 text-white shadow-xl z-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <img src="img/logo.png"
+               alt="BIR Logo"
+               class="h-10 md:h-12 w-auto">
+        </div>
+  
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-4 lg:space-x-6">
+          <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">Home</a>
+          <a href="login.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">Login</a>
+          
+          <!-- Resources Dropdown -->
+          <div class="relative group">
+            <button class="px-3 py-2 text-sm font-medium hover:bg-blue-600 flex items-center gap-1">
+              Resources
+              <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            
+            <!-- Dropdown Menu -->
+            <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-1 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+              <a href="revenue.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Revenue Issuances</a>
+              <a href="faq.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">FAQs</a>
+              <a href="jobaids.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Job Aids</a>
+              <a href="downloads.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Downloads</a>
+            </div>
+          </div>
+  
+          <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">BIR Main</a>
+        </nav>
+  
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden p-2 hover:bg-blue-600 rounded-lg">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Mobile Navigation Menu -->
+      <div id="mobile-menu"
+          class="md:hidden bg-blue-700 rounded-b-lg z-50 space-y-2 px-4 py-4">
+        <a href="index.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Home</a>
+        <a href="login.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Login</a>
+        <a href="revenue.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Revenue Issuances</a>
+        <a href="faq.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">FAQs</a>
+        <a href="jobaids.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Job Aids</a>
+        <a href="downloads.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Downloads</a>
+        <a href="#" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">BIR Main</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Header -->
+  <header class="bg-blue-800 text-white shadow-lg">
+    <div class="mx-auto px-4 py-8 max-w-6xl">
+      <h1 class="text-3xl font-bold mb-2">Electronic Filing and Payment System (eFPS)</h1>
+      <p class="text-lg text-blue-100">Frequently Asked Questions</p>
+    </div>
+  </header>
+
+  <!-- Sticky Navigation -->
+  <nav class="sticky top-0 bg-white shadow-sm z-10 border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-wrap gap-6 py-4">
+        <a href="#overview"    class="text-blue-600 hover:text-blue-800 font-medium">Overview</a>
+        <a href="#enrollment"  class="text-blue-600 hover:text-blue-800 font-medium">Enrollment</a>
+        <a href="#epayment"    class="text-blue-600 hover:text-blue-800 font-medium">e‑Payment</a>
+        <a href="#other"       class="text-blue-600 hover:text-blue-800 font-medium">Other FAQs</a>
+        <a href="#technical"   class="text-blue-600 hover:text-blue-800 font-medium">Technical Requirements</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+
+    <!-- Overview Section -->
+    <section id="overview" class="mb-12 scroll-mt-[70px]">
+      <h2 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
+        <svg class="w-6 h-6 mr-2 text-blue-800" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 
+                   002-2zm0 0V9a2 2 0 012-2h2a2 2 0 
+                   012 2v10m-6 0a2 2 0 002 2h2a2 2 0 
+                   002-2m0 0V5a2 2 0 012-2h2a2 2 0 
+                   012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+        Overview
+      </h2>
+      <div class="space-y-4">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-2">1. What is eFPS?</h3>
+          <p>eFPS stands for Electronic Filing and Payment System, and it refers to the system developed and maintained by the Bureau of Internal Revenue (BIR) for electronically filing tax returns, including attachments, if any, and paying taxes due thereon, specifically through the internet.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-2">2. What is e‑Filing?</h3>
+          <p>e‑Filing is the process of electronically filing returns including attachments, if any, specifically through the internet.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-2">3. What is e‑Payment?</h3>
+          <p>e‑Payment is the process of electronically paying a tax liability through the internet banking facilities of Authorized Agent Banks (AABs).</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-2">4. Why do we need to use the eFPS? What are its objectives?</h3>
+          <p>With eFPS, taxpayers can avail of a paperless tax filing experience and pay their taxes online via internet banking. It allows filing and payment anytime, anywhere with internet access.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-2">5. What are the expected benefits of the system?</h3>
+          <ul class="list-disc list-inside">
+            <li>Convenient – quick, simple, and secure</li>
+            <li>Interactive – immediate online feedback</li>
+            <li>Self‑validating – minimizes errors before submission</li>
+            <li>Fast acknowledgement vs manual filing</li>
+            <li>24/7 availability including holidays</li>
+            <li>Encrypted, secure data transmission</li>
+            <li>Cost‑effective processing</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-2">6. Who is eligible to use the system?</h3>
+          <p>Mandated taxpayers required to file and pay taxes to the Philippine government, including corporations, agencies, top individual taxpayers, and others as defined by BIR circulars.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-2">7. What do I need to get started with eFPS?</h3>
+          <ul class="list-disc list-inside">
+            <li>Computer with internet connection and supported browser (Firefox ≥40, Chrome ≥45, IE ≥11; 800×600 resolution+)</li>
+            <li>Email account for notifications</li>
+            <li>Optional: Adobe Reader ≥8, WinZIP/WinRAR, MS Office</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-2">8. When was the first implementation of eFPS?</h3>
+          <p>eFPS has been available online since June 1, 2001.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-2">9. Is there any additional cost that the taxpayer will incur upon availment of this system?</h3>
+          <p>No. Enrollment and usage of eFPS is free of charge. Bank fees or minimum balance requirements may apply per your AAB.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-2">10. What is the scope or coverage of the eFPS?</h3>
+          <p>e‑Filing and e‑Payment for forms 0605, 1600, 1600WP, 1601C, 1601E, 1601F, 1602, 1603, 1604CF, 1604E, 1700, 1701, 1701Q, 1702, 1702Q, 1704, 2000, 2200A/AN/M/P/T, 2550M/Q, 2551/M, 2552, 2553.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-2">11. Is the transaction with eFPS secure?</h3>
+          <p>Yes. eFPS uses SSL encryption, VeriSign, firewalls, intrusion detection, antivirus, and two-level user authentication for secure transactions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enrollment Section -->
+    <section id="enrollment" class="mb-12 scroll-mt-[70px]">
+      <h2 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
+        <svg class="w-6 h-6 mr-2 text-blue-800" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2
+                   c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 
+                   015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0
+                   a5.002 5.002 0 019.288 0M15 7a3 3 0 
+                   11-6 0 3 3 0 016 0zm6 3a2 2 0 
+                   11-4 0 2 2 0 014 0zM7 10a2 2 0 
+                   11-4 0 2 2 0 014 0z"/>
+        </svg>
+        Enrollment
+      </h2>
+      <div class="space-y-4">
+   
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">1. Where can I get information regarding enrollment procedures for eFPS?</h3>
+          <p>Enrollment procedures are available on the eFPS webpage under the Job Aids link.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">2. What are the steps in enrolling to eFPS?</h3>
+          <p>Access bir.gov.ph → click eFPS → Enroll to eFPS → complete form → submit → await email approval (3–10 working days).</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">3. What are the requirements in availing of the system?</h3>
+          <p>BIR‑ITS registration, board resolution authorizing officers, letter of intent, eFPS enrollment, and eFPS‑AAB enrollment.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">4. How many days to know if enrollment was approved or rejected?</h3>
+          <p>Expect an email within 3–10 working days.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">5. As a large taxpayer, do I need to enroll my branches separately?</h3>
+          <p>No. Only non-large taxpayers enroll branches separately; large taxpayers file consolidated returns via head office.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">6. Can we submit more than one email during enrollment?</h3>
+          <p>No. Only one email per user; up to three user accounts per TIN.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">7. How to check if enrolled persons are authorized?</h3>
+          <p>BIR verifies the Certification of Authorized Users submitted by the taxpayer.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">8. Can I enroll more than once?</h3>
+          <p>Initial enrollment is one-time. After activation, add users via Enroll More Users (max 3 users per TIN).</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">9. Do I need to enroll with an eFPS‑AAB after enrolling with eFPS?</h3>
+          <p>Yes. Enroll separately with an eFPS‑AAB for e‑Payment.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">10. Possible reasons for enrollment rejection?</h3>
+          <p>Taxpayer found bogus, mismatch of info vs BIR records, or user not authorized.</p>
+        </div>
+  
+      </div>
+    </section>
+
+    <!-- e-Payment Section -->
+    <section id="epayment" class="mb-12 scroll-mt-[70px]">
+      <h2 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
+        <svg class="w-6 h-6 mr-2 text-blue-800" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 
+                   003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 
+                   3v8a3 3 0 003 3z"/>
+        </svg>
+        e‑Payment
+      </h2>
+      <div class="space-y-4">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">1. Can I enroll and open an account in any of the eFPS‑AABs?</h3>
+          <p>Yes, any AAB capable of Internet banking transfers.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">2. Do I need an existing account with an eFPS‑AAB?</h3>
+          <p>Yes. Check bank fees/minimum ADB requirements.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">3. Until what time do eFPS‑AABs accept e‑payment?</h3>
+          <p>Cut-off times vary by bank. Inquire with your AAB.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Other FAQs Section -->
+    <section id="other" class="mb-12 scroll-mt-[70px]">
+      <h2 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
+        <svg class="w-6 h-6 mr-2 text-blue-800" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8.228 9c.549-1.165 2.03-2 3.772-2 
+                   2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 
+                   2.907-.542.104-.994.54-.994 1.093m0 
+                   3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Other FAQs
+      </h2>
+      <div class="space-y-4">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">1. Can I view the return and the payment made?</h3>
+          <p>Yes, via Tax Return Inquiry (up to 2 months).</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">2. What are existing eFPS Error and Application Messages?</h3>
+          <p>Includes duplicate payment, parameter errors, missing FRN, connection issues, session timeouts, server errors.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">3. Minimum PC requirements and browsers?</h3>
+          <p>1.3 GHz processor, 256 MB RAM (1 GB recommended), Windows 2000+/XP/Vista+, IE6+/Firefox2+, 800×600 resolution, 128 kbps+ Internet.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">4. What are the eFPS Security Settings?</h3>
+          <p>Disable pop-up blockers or add efps.bir.gov.ph to exceptions, enable SSL 2.0/3.0, accept certificates, allow session cookies.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="font-semibold mb-2">5. What if eFPS does not respond after submitting the payment form?</h3>
+          <p>Check pop-ups and settings, clear cache, retry, or contact BIR Helpdesk.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Requirements Section -->
+    <section id="technical" class="mb-12 scroll-mt-[70px]">
+      <h2 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
+        <svg class="w-6 h-6 mr-2 text-blue-800" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 
+                   2v6a2 2 0 002 2h2a2 2 0 002-2zm0 
+                   0V9a2 2 0 012-2h2a2 2 0 012 
+                   2v10m-6 0a2 2 0 002 2h2a2 2 0 
+                   002-2m0 0V5a2 2 0 012-2h2a2 2 
+                   0 012 2v14a2 2 0 01-2 2h-2a2 
+                   2 0 01-2-2z"/>
+        </svg>
+        Technical Requirements
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-4">System Specifications</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Computer with 1.3 GHz processor or higher</li>
+            <li>256 MB RAM (1 GB recommended)</li>
+            <li>Windows 2000/XP/Vista or later</li>
+            <li>Monitor supporting 800×600 resolution</li>
+            <li>Internet connection (128 kbps or higher)</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h3 class="text-lg font-semibold mb-4">Security Setup</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Disable pop-up blockers or add efps.bir.gov.ph to exceptions</li>
+            <li>Enable SSL 2.0 and SSL 3.0 in browser settings</li>
+            <li>Accept site security certificates when prompted</li>
+            <li>Allow session cookies for the site</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-16 border-t border-gray-200 text-center py-6 text-sm text-gray-600">
+      <p>© 2024 Bureau of Internal Revenue. All rights reserved.</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    // Debugging: Log elements to console
+    console.log('Mobile Menu Button:', mobileMenuButton);
+    console.log('Mobile Menu:', mobileMenu);
+    
+    mobileMenuButton.addEventListener('click', function(e) {
+
+      e.stopPropagation(); // Prevent event bubbling
+      mobileMenu.classList.toggle('active');
+      
+      // Change the icon based on menu state
+      const icon = mobileMenuButton.querySelector('svg');
+      if (mobileMenu.classList.contains('active')) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+      } else {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+      }
+    });
+    
+    // Close menu when clicking anywhere outside
+    document.addEventListener('click', function(e) {
+      if (!mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('active');
+        const icon = mobileMenuButton.querySelector('svg');
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+      }
+    });
+  });
+</script>

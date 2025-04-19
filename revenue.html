@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revenue Issuances – eFPS</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #mobile-menu {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      transition: all 0.3s ease-in-out;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    #mobile-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    header {
+      position: relative;
+    }
+</style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+  <header class="bg-blue-700 text-white shadow-lg z-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <img src="img/logo.png"
+               alt="BIR Logo"
+               class="h-10 md:h-12 w-auto">
+        </div>
+  
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-4 lg:space-x-6">
+          <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">Home</a>
+          <a href="login.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">Login</a>
+          
+          <!-- Resources Dropdown -->
+          <div class="relative group">
+            <button class="px-3 py-2 text-sm font-medium hover:bg-blue-600 flex items-center gap-1">
+              Resources
+              <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            
+            <!-- Dropdown Menu -->
+            <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-1 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+              <a href="revenue.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Revenue Issuances</a>
+              <a href="faq.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">FAQs</a>
+              <a href="jobaids.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Job Aids</a>
+              <a href="downloads.html" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Downloads</a>
+            </div>
+          </div>
+  
+          <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">BIR Main</a>
+        </nav>
+  
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden p-2 hover:bg-blue-600 rounded-lg">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Mobile Navigation Menu -->
+      <div id="mobile-menu"
+          class="md:hidden bg-blue-700 rounded-b-lg z-50 space-y-2 px-4 py-4">
+        <a href="index.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Home</a>
+        <a href="login.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Login</a>
+        <a href="revenue.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Revenue Issuances</a>
+        <a href="faq.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">FAQs</a>
+        <a href="jobaids.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Job Aids</a>
+        <a href="downloads.html" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">Downloads</a>
+        <a href="#" class="block text-white hover:bg-blue-600 px-3 py-2 rounded">BIR Main</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- header -->
+      <div class="mb-3 flex items-center">
+        <h1 class="text-3xl font-bold text-blue-800 w-full text-center md:text-left">Revenue Issuances</h1>
+      </div>
+      <p class="mb-6 text-gray-600 text-center md:text-left">Official tax regulations and memoranda governing the Electronic Filing and Payment System.</p>
+
+      <!-- tabs -->
+      <div class="bg-white rounded-xl shadow-md">
+        <nav class="flex border-b border-gray-200">
+          <button data-tab="rr"
+                  class="md:px-6 py-3 text-xs md:text-sm font-medium text-gray-500 hover:text-blue-700 border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:text-blue-700">
+            Revenue Regulations
+          </button>
+          <button data-tab="rmo"
+                  class="md:px-6 py-3 text-xs md:text-sm  font-medium text-gray-500 hover:text-green-700 border-b-2 border-transparent data-[state=active]:border-green-600 data-[state=active]:text-green-700">
+            Memorandum Orders
+          </button>
+          <button data-tab="rmc"
+                  class="md:px-6 py-3 text-xs md:text-sm  font-medium text-gray-500 hover:text-purple-700 border-b-2 border-transparent data-[state=active]:border-purple-600 data-[state=active]:text-purple-700">
+            Memorandum Circulars
+          </button>
+        </nav>
+
+        <!-- content -->
+        <div class="p-6 space-y-4">
+
+          <!-- RR -->
+          <div data-content="rr" class="grid gap-4">
+
+            <!-- each RR entry -->
+            <template id="rr-item">
+              <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100 transition">
+                <div class="flex justify-between">
+                  <div>
+                    <h3 class="font-semibold text-blue-800"></h3>
+                    <p class="text-gray-600 mt-1"></p>
+                  </div>
+                  <span class="text-sm text-gray-500"></span>
+                </div>
+              </div>
+            </template>
+
+            <!-- hardcode each RR -->
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 9‑2001</h3>
+                  <p class="text-gray-600 mt-1">Prescribes the Electronic Filing of Tax Returns and Payment of Taxes</p>
+                </div>
+                <span class="text-sm text-gray-500">2001</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 2‑2002</h3>
+                  <p class="text-gray-600 mt-1">Makes EFPS mandatory for large, optional for certain non-large taxpayers</p>
+                </div>
+                <span class="text-sm text-gray-500">2002</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 4‑2002</h3>
+                  <p class="text-gray-600 mt-1">Amends due dates, clarifies form type & attachments</p>
+                </div>
+                <span class="text-sm text-gray-500">2002</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 8‑2002</h3>
+                  <p class="text-gray-600 mt-1">Amends RR No. 7‑95 on VAT quarterly returns, penalties, non‑resident remittance</p>
+                </div>
+                <span class="text-sm text-gray-500">2002</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 9‑2002</h3>
+                  <p class="text-gray-600 mt-1">Amends RR Nos. 9‑2001 & 1‑98 for EFPS filing/payment</p>
+                </div>
+                <span class="text-sm text-gray-500">2002</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 26‑2002</h3>
+                  <p class="text-gray-600 mt-1">Staggered filing based on industry classification</p>
+                </div>
+                <span class="text-sm text-gray-500">2002</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 17‑2003</h3>
+                  <p class="text-gray-600 mt-1">Adds transactions for Creditable Withholding Tax; final withholding on real property</p>
+                </div>
+                <span class="text-sm text-gray-500">2003</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 30‑2003</h3>
+                  <p class="text-gray-600 mt-1">Withholding for CGT on non‑resident sales; expanded rates; sanctions</p>
+                </div>
+                <span class="text-sm text-gray-500">2003</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 5‑2004</h3>
+                  <p class="text-gray-600 mt-1">Adds returns/forms; expands & revises EFPS enrollment</p>
+                </div>
+                <span class="text-sm text-gray-500">2004</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 1‑2005</h3>
+                  <p class="text-gray-600 mt-1">Amends exemptions from VAT & quarterly sales/purchases</p>
+                </div>
+                <span class="text-sm text-gray-500">2005</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 3‑2005</h3>
+                  <p class="text-gray-600 mt-1">Implements EO 398: tax payment as precondition for gov’t contracts</p>
+                </div>
+                <span class="text-sm text-gray-500">2005</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 2‑2006</h3>
+                  <p class="text-gray-600 mt-1">Mandatory attachments: Summary Alphalist & Monthly Alphalist</p>
+                </div>
+                <span class="text-sm text-gray-500">2006</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 10‑2007</h3>
+                  <p class="text-gray-600 mt-1">Expands coverage to large corps, computerized systems & gov’t bidders</p>
+                </div>
+                <span class="text-sm text-gray-500">2007</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 12‑2007</h3>
+                  <p class="text-gray-600 mt-1">Amends due date for MCIT on domestic & resident foreign corps</p>
+                </div>
+                <span class="text-sm text-gray-500">2007</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 14‑2008</h3>
+                  <p class="text-gray-600 mt-1">Expands 1%/2% withholding agent coverage to top 20k private corps</p>
+                </div>
+                <span class="text-sm text-gray-500">2008</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 3‑2009</h3>
+                  <p class="text-gray-600 mt-1">Expands EFPS to top 20k private corps under RR 14‑2008</p>
+                </div>
+                <span class="text-sm text-gray-500">2009</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 1‑2010</h3>
+                  <p class="text-gray-600 mt-1">Further expands EFPS coverage (RR 9‑2001)</p>
+                </div>
+                <span class="text-sm text-gray-500">2010</span>
+              </div>
+            </div>
+            <div class="p-4 border-l-4 border-blue-600 bg-blue-50 rounded hover:bg-blue-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-blue-800">RR No. 1‑2013</h3>
+                  <p class="text-gray-600 mt-1">Mandates National Government Agencies to use eTRA</p>
+                </div>
+                <span class="text-sm text-gray-500">2013</span>
+              </div>
+            </div>
+
+          </div><!-- /.rr -->
+
+          <!-- RMO -->
+          <div data-content="rmo" class="hidden grid gap-4">
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 5‑2002</h3>
+                  <p class="text-gray-600 mt-1">Guidelines for adoption of EFPS</p>
+                </div>
+                <span class="text-sm text-gray-500">2002</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 15‑2002</h3>
+                  <p class="text-gray-600 mt-1">Creates ATC for Final Withholding Tax on interest</p>
+                </div>
+                <span class="text-sm text-gray-500">2002</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 19‑2002</h3>
+                  <p class="text-gray-600 mt-1">Amended guidelines for EFPS adoption</p>
+                </div>
+                <span class="text-sm text-gray-500">2002</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 25‑2002</h3>
+                  <p class="text-gray-600 mt-1">Deletes/creates ATCs for proper tax classification</p>
+                </div>
+                <span class="text-sm text-gray-500">2002</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 1‑2003</h3>
+                  <p class="text-gray-600 mt-1">Creates ATCs for Expanded Withholding Tax (RR 14‑2002)</p>
+                </div>
+                <span class="text-sm text-gray-500">2003</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 34‑2003</h3>
+                  <p class="text-gray-600 mt-1">Creates/modifies/drops ATCs for Withholding Tax</p>
+                </div>
+                <span class="text-sm text-gray-500">2003</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 3‑2004</h3>
+                  <p class="text-gray-600 mt-1">Creates/modifies ATCs for withholding taxes</p>
+                </div>
+                <span class="text-sm text-gray-500">2004</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 9‑2004</h3>
+                  <p class="text-gray-600 mt-1">Creates/drops ATCs for Excise Tax items</p>
+                </div>
+                <span class="text-sm text-gray-500">2004</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 27‑2004</h3>
+                  <p class="text-gray-600 mt-1">Guidelines for Accredited Agent Bank refund requests</p>
+                </div>
+                <span class="text-sm text-gray-500">2004</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 6‑2005</h3>
+                  <p class="text-gray-600 mt-1">Creates ATCs for creditable withholding income payments</p>
+                </div>
+                <span class="text-sm text-gray-500">2005</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 7‑2005</h3>
+                  <p class="text-gray-600 mt-1">Renames/creates ATCs for alcohol & tobacco excise rates</p>
+                </div>
+                <span class="text-sm text-gray-500">2005</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 1‑2006</h3>
+                  <p class="text-gray-600 mt-1">Creates/modifies/drops ATCs for NAP, Meralco refunds & gov’t VAT</p>
+                </div>
+                <span class="text-sm text-gray-500">2006</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 2‑2006</h3>
+                  <p class="text-gray-600 mt-1">Amends RMO 7‑2005 on excise ATCs & rates</p>
+                </div>
+                <span class="text-sm text-gray-500">2006</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 10‑2006</h3>
+                  <p class="text-gray-600 mt-1">Guidelines for EFPS adoption in computerized RDOs</p>
+                </div>
+                <span class="text-sm text-gray-500">2006</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 19‑2007</h3>
+                  <p class="text-gray-600 mt-1">Schedule of compromise penalties for NIRC violations</p>
+                </div>
+                <span class="text-sm text-gray-500">2007</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 35‑2008</h3>
+                  <p class="text-gray-600 mt-1">Creates/modifies ATCs per RR 30‑2003</p>
+                </div>
+                <span class="text-sm text-gray-500">2008</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 4‑2009</h3>
+                  <p class="text-gray-600 mt-1">Intensify collection from eFPS taxpayers</p>
+                </div>
+                <span class="text-sm text-gray-500">2009</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-green-600 bg-green-50 rounded hover:bg-green-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-green-800">RMO No. 30‑2014</h3>
+                  <p class="text-gray-600 mt-1">Uniform guidelines for NGAs’ tax remittance via eTRA</p>
+                </div>
+                <span class="text-sm text-gray-500">2014</span>
+              </div>
+            </div>
+
+          </div><!-- /.rmo -->
+
+          <!-- RMC -->
+          <div data-content="rmc" class="hidden grid gap-4">
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 24‑2001</h3>
+                  <p class="text-gray-600 mt-1">Enrolment Procedures Prior to eFPS</p>
+                </div>
+                <span class="text-sm text-gray-500">2001</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 2‑2003</h3>
+                  <p class="text-gray-600 mt-1">Clarifies staggered filing under RR 26‑2002</p>
+                </div>
+                <span class="text-sm text-gray-500">2003</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 28‑2004</h3>
+                  <p class="text-gray-600 mt-1">Deficiency assessments ≤ ₱100 no longer assessed/collected</p>
+                </div>
+                <span class="text-sm text-gray-500">2004</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 71‑2004</h3>
+                  <p class="text-gray-600 mt-1">Same as RMC 28‑2004</p>
+                </div>
+                <span class="text-sm text-gray-500">2004</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 68‑2005</h3>
+                  <p class="text-gray-600 mt-1">Enhanced VAT forms 2550M & 2550Q (Sept 2005)</p>
+                </div>
+                <span class="text-sm text-gray-500">2005</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 72‑2005</h3>
+                  <p class="text-gray-600 mt-1">Transition procedures for new VAT Law (RA 9337)</p>
+                </div>
+                <span class="text-sm text-gray-500">2005</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 8‑2006</h3>
+                  <p class="text-gray-600 mt-1">Clarifies VAT rate increase 10%→12%</p>
+                </div>
+                <span class="text-sm text-gray-500">2006</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 16‑2006</h3>
+                  <p class="text-gray-600 mt-1">Effectivity date for 32% & 35% rates (2005)</p>
+                </div>
+                <span class="text-sm text-gray-500">2006</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 17‑2006</h3>
+                  <p class="text-gray-600 mt-1">70% cap on deductible input tax guidelines</p>
+                </div>
+                <span class="text-sm text-gray-500">2006</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 21‑2006</h3>
+                  <p class="text-gray-600 mt-1">Q&A on filling Sept 2005 VAT forms</p>
+                </div>
+                <span class="text-sm text-gray-500">2006</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 22‑2006</h3>
+                  <p class="text-gray-600 mt-1">VAT rate increase on goods sale</p>
+                </div>
+                <span class="text-sm text-gray-500">2006</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 55‑2006</h3>
+                  <p class="text-gray-600 mt-1">Announces enhanced eFPS forms 2550M/Q & 1702/Q</p>
+                </div>
+                <span class="text-sm text-gray-500">2006</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 23‑2007</h3>
+                  <p class="text-gray-600 mt-1">Withholding tax Q&A re: RA 9337</p>
+                </div>
+                <span class="text-sm text-gray-500">2007</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 62‑2007</h3>
+                  <p class="text-gray-600 mt-1">Publishes memo on “eFPS filers without payment”</p>
+                </div>
+                <span class="text-sm text-gray-500">2007</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 89‑2007</h3>
+                  <p class="text-gray-600 mt-1">Mandates large taxpayers’ compliance</p>
+                </div>
+                <span class="text-sm text-gray-500">2007</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 3‑2008</h3>
+                  <p class="text-gray-600 mt-1">Transition for enhanced Form 1702Q (Oct 2007 enCS)</p>
+                </div>
+                <span class="text-sm text-gray-500">2008</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 32‑2008</h3>
+                  <p class="text-gray-600 mt-1">Extends manual filing deadline for eFPS outages</p>
+                </div>
+                <span class="text-sm text-gray-500">2008</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 33‑2008</h3>
+                  <p class="text-gray-600 mt-1">Allows electronic filing after manual payment</p>
+                </div>
+                <span class="text-sm text-gray-500">2008</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 42‑2008</h3>
+                  <p class="text-gray-600 mt-1">Manual filing authorized for eFPS outages</p>
+                </div>
+                <span class="text-sm text-gray-500">2008</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 43‑2008</h3>
+                  <p class="text-gray-600 mt-1">Further manual filing authorization</p>
+                </div>
+                <span class="text-sm text-gray-500">2008</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 4‑2009</h3>
+                  <p class="text-gray-600 mt-1">Extends 1604‑CF deadline to Feb 27, 2009</p>
+                </div>
+                <span class="text-sm text-gray-500">2009</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 10‑2009</h3>
+                  <p class="text-gray-600 mt-1">Extends 1604‑CF & 1604‑E deadlines</p>
+                </div>
+                <span class="text-sm text-gray-500">2009</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 21‑2009</h3>
+                  <p class="text-gray-600 mt-1">Procedures for enhanced revenue issuances</p>
+                </div>
+                <span class="text-sm text-gray-500">2009</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 25‑2009</h3>
+                  <p class="text-gray-600 mt-1">Transition for RA 9504 & RR 7‑2008</p>
+                </div>
+                <span class="text-sm text-gray-500">2009</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 69‑2009</h3>
+                  <p class="text-gray-600 mt-1">Mandatory enrolment & availment for selected taxpayers</p>
+                </div>
+                <span class="text-sm text-gray-500">2009</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 10‑2012</h3>
+                  <p class="text-gray-600 mt-1">Transition for Enhanced ITRs 1700, 1701, 1702 (Nov 2011 ENCS)</p>
+                </div>
+                <span class="text-sm text-gray-500">2012</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 15‑2012</h3>
+                  <p class="text-gray-600 mt-1">Guidelines for TY 2011 ITRs (RR 19‑2011)</p>
+                </div>
+                <span class="text-sm text-gray-500">2012</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 43‑2012</h3>
+                  <p class="text-gray-600 mt-1">Procedures for filing AITRs (2011) under Enhanced 1702</p>
+                </div>
+                <span class="text-sm text-gray-500">2012</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 10‑2013</h3>
+                  <p class="text-gray-600 mt-1">Transition for ITRs under revised alcohol/tobacco rates (RA 10351)</p>
+                </div>
+                <span class="text-sm text-gray-500">2013</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 27‑2013</h3>
+                  <p class="text-gray-600 mt-1">Filing 2012 ITRs & additional attachments (Nov 2011 ENCS)</p>
+                </div>
+                <span class="text-sm text-gray-500">2013</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 20‑2014</h3>
+                  <p class="text-gray-600 mt-1">Filing 2013 ITRs (1700, 1701, 1702‑RT/EX/MX)</p>
+                </div>
+                <span class="text-sm text-gray-500">2014</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 28‑2014</h3>
+                  <p class="text-gray-600 mt-1">Waiver of penalties for ITRs filed on April 16, 2014</p>
+                </div>
+                <span class="text-sm text-gray-500">2014</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 57‑2014</h3>
+                  <p class="text-gray-600 mt-1">Clarifies RR 1‑2013 on use of eTRA</p>
+                </div>
+                <span class="text-sm text-gray-500">2014</span>
+              </div>
+            </div>
+
+            <div class="p-4 border-l-4 border-purple-600 bg-purple-50 rounded hover:bg-purple-100">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="font-semibold text-purple-800">RMC No. 74‑2014</h3>
+                  <p class="text-gray-600 mt-1">Availability of 2200‑A & 2200‑T in eFPS/eBIRForms</p>
+                </div>
+                <span class="text-sm text-gray-500">2014</span>
+              </div>
+            </div>
+
+          </div><!-- /.rmc -->
+
+        </div><!-- /.p-6 -->
+      </div><!-- /.tab container -->
+
+    </div><!-- /.max-w -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-800 text-white py-6 mt-8">
+    <div class="container mx-auto px-4 text-center text-sm">
+      © 2023 Bureau of Internal Revenue – eFPS System  
+      <span class="text-gray-400 block">Official Revenue Issuances Repository</span>
+    </div>
+  </footer>
+
+  <!-- TABS SCRIPT -->
+  <script>
+    document.querySelectorAll('[data-tab]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // reset
+        document.querySelectorAll('[data-tab]').forEach(b => {
+          b.removeAttribute('data-state');
+          document.querySelector(`[data-content="${b.dataset.tab}"]`).classList.add('hidden');
+        });
+        // activate
+        btn.setAttribute('data-state','active');
+        document.querySelector(`[data-content="${btn.dataset.tab}"]`).classList.remove('hidden');
+      });
+    });
+    // default
+    document.querySelector('[data-tab="rr"]').click();
+  </script>
+</body>
+</html>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    // Debugging: Log elements to console
+    console.log('Mobile Menu Button:', mobileMenuButton);
+    console.log('Mobile Menu:', mobileMenu);
+    
+    mobileMenuButton.addEventListener('click', function(e) {
+
+      e.stopPropagation(); // Prevent event bubbling
+      mobileMenu.classList.toggle('active');
+      
+      // Change the icon based on menu state
+      const icon = mobileMenuButton.querySelector('svg');
+      if (mobileMenu.classList.contains('active')) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+      } else {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+      }
+    });
+    
+    // Close menu when clicking anywhere outside
+    document.addEventListener('click', function(e) {
+      if (!mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('active');
+        const icon = mobileMenuButton.querySelector('svg');
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+      }
+    });
+  });
+</script>
